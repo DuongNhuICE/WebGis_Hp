@@ -209,6 +209,8 @@ var onSelectObjectFromSearch = function (feature,layer) {
 
   // Tạo một dòng mới cho mỗi thuộc tính của đối tượng và hiển thị nó trong bảng
   for (var key in featureProperties) {
+    if  (key !=='Shape_Length'&& key !=='Shape_Area' )
+    {
       var key_= fieldAliases[key];
       var value = featureProperties[key];    
       var row = table.insertRow();
@@ -216,5 +218,6 @@ var onSelectObjectFromSearch = function (feature,layer) {
       var cell2 = row.insertCell(1);
       cell1.innerHTML = key_; // Tên thuộc tính
       cell2.innerHTML = value; // Giá trị thuộc tính
+    }
   }
 };
