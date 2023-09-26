@@ -559,14 +559,14 @@ var onSingleClick = function (evt) {
 
 
             // đưa giá trị vào bảng
-            onSelectObjectFromSearch(currentFeature);
+            onSelectObjectFromSearch(currentFeature,currentLayer);
         }
     }
     // Giả định dữ liệu từ popup
     //var popupText = "Phân loại: ABC<br>Tên: XYZ<br>"; // Điều này là một ví dụ, thay thế bằng dữ liệu thực tế từ popup
 
     // hiện PopUp
-    
+    /*
     if (popupText) {
         overlayPopup.setPosition(coord);
         content.innerHTML = popupText;
@@ -577,7 +577,7 @@ var onSingleClick = function (evt) {
         container.style.display = 'none';
         closer.blur();
     }
-    
+    */
 };
 
 map.on('singleclick', function (evt) {

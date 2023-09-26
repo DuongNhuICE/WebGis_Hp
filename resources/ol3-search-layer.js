@@ -131,6 +131,7 @@ var SearchLayer = (function (Control) {
                               text: el.get(options.colName),
                               value: el.getId(), // If GeoJSON has an id
                               feature: el, // Lưu tham chiếu đến đối tượng
+                              layer: options.layer, // lưu tham chiếu layer
                           };
                       }),
                   },
@@ -156,8 +157,8 @@ var SearchLayer = (function (Control) {
                       map.getView().fit(newExtent, size);
                   }
                   // Lấy thông tin đối tượng
-                  
-                  onSelectObjectFromSearch(info.selection.feature);
+                  ///
+                  onSelectObjectFromSearch(info.selection.feature,info.selection.layer);
 
                   select.getFeatures().clear();
                   select.getFeatures().push(feat);
@@ -187,16 +188,17 @@ var SearchLayer = (function (Control) {
 })(ol.control.Control);
 
 // Hàm xử lý khi chọn đối tượng từ ô tìm kiếm và hiển thị thông tin trong bảng
-var onSelectObjectFromSearch = function (feature) {
+var onSelectObjectFromSearch = function (feature,layer) {
   // Lấy thông tin của đối tượng
   var featureProperties = feature.getProperties();
+  var fieldAliases = layer.get('fieldAliases');
   // Xóa thuộc tính đầu tiên (nếu có)
   var firstProperty = Object.keys(featureProperties)[0];
   if (firstProperty) {
       delete featureProperties[firstProperty];
   }
 
-
+  //console.log(fieldAliases);
   // Lấy tham chiếu đến bảng
   var table = document.getElementById('info-table');
 
@@ -207,11 +209,12 @@ var onSelectObjectFromSearch = function (feature) {
 
   // Tạo một dòng mới cho mỗi thuộc tính của đối tượng và hiển thị nó trong bảng
   for (var key in featureProperties) {
-      var value = featureProperties[key];
+      var key_= fieldAliases[key];
+      var value = featureProperties[key];    
       var row = table.insertRow();
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.innerHTML = key; // Tên thuộc tính
+      cell1.innerHTML = key_; // Tên thuộc tính
       cell2.innerHTML = value; // Giá trị thuộc tính
   }
 };
