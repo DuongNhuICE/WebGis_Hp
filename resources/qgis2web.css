@@ -1,0 +1,178 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: small;
+}
+
+th,
+td {
+    vertical-align: top;
+    text-align: left;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.ol-popup {
+    /*
+    display: none;
+    position: fixed;
+    background-color: white;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    height: auto;
+    width: auto;
+    min-width: 200px;
+    max-height: 600px;
+    overflow: auto;
+    */
+    position: fixed;
+    top: 100px; /* Đặt vị trí đứng theo pixel từ phía trên cùng của trình duyệt */
+    left: 50%; /* Đặt vị trí ngang theo giữa màn hình */
+    transform: translateX(-50%); /* Dịch chuyển popup điều chỉnh vị trí ngang giữa */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Chọn một giá trị z-index đủ lớn để đảm bảo popup luôn hiển thị trên cùng */
+    display: none; /* Ẩn popup ban đầu */
+    max-height: 400px; /* Đặt chiều cao tối đa cho popup */
+    overflow-y: auto; /* Thêm thanh cuộn nếu nội dung vượt quá chiều cao tối đa */
+}
+
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+}
+
+.ol-popup-closer:after {
+    content: 'X';
+}
+
+.ol-attribution a {
+    text-decoration: none;
+    color: #666;
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+.layer-switcher .panel {
+    border: 4px solid rgba(0, 60, 136, 0.5) !important;
+    border-radius: 4px !important; 
+}
+
+.layer-switcher {
+    top: 0.5em;
+    right: 0.5em;
+    text-align: left;
+}
+
+#popup-content > ul > li:nth-child(even) {
+    background-color: #eee;
+}
+
+#popup-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#popup-content li {
+    margin-bottom: 0.25em;
+}
+/* Header */
+header {
+    background-color: #3498db; /* Chọn màu bạn muốn ở đây */
+    color: #0a21ee; /* Màu chữ trắng hoặc màu tương tự cho sự tương phản */
+    padding: 20px; /* Khoảng cách giữa nền và vị trí text */
+    height:  9%;
+}
+
+/* CSS để tùy chỉnh header và vị trí text khác (nếu cần) */
+h1 {
+    font-size: 28px; /* Kích thước chữ của vị trí text */
+    margin: 0; /* Loại bỏ khoảng cách ngoài của vị trí text */
+    position: fixed; /* Đặt header làm phần cố định */
+    top: 15px; /* Đặt header ở phía trên cùng */
+    left: 400px; /* Đặt header ở phía trái */
+    width: 100%; /* Đặt header chiếm toàn bộ chiều rộng */
+}
+
+nav {
+    margin-right: 10px;
+    position: fixed;
+    top: 40px;
+    left: 390px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 10px;
+    position: relative; /* Tạo khoảng cách giữa các mục menu */
+}
+ /* CSS để tùy chỉnh màu chữ khi di chuột qua mục menu */
+ nav li:hover a {
+    color: #e74c3c; /* Màu chữ khi di chuột vào */
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    display: block; /* Để mục menu trở thành hình chữ nhật */
+    padding: 10px 10px; /* Khoảng cách nội dung menu */
+}
+
+/* CSS để tùy chỉnh màu nền khi di chuột qua mục menu */
+nav li:hover {
+    background-color: transparent;
+    padding: 0px 0px; /* Chỉnh kích thước nền menu khi di chuột vào */
+}
+
+/* CSS để tạo hiệu ứng hiển thị menu ngang */
+nav ul {
+    position: relative;
+}
+
+nav ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Chiều cao của dòng ngang */
+    background-color: #fff; /* Màu của dòng ngang */
+    display: none;
+}
+
+/* CSS để thêm khoảng cách giữa header và nội dung chính */
+.content {
+    margin-top: 50px; /* Để tránh bị che phủ bởi menu */
+}
+
+/* Chỉnh logo*/
+.logo{
+    position: absolute;
+    top: 5px;
+    left: 8%;
+    width: 130px; /* Đặt chiều rộng */
+    height: 80px; /* Đặt chiều cao */
+}
