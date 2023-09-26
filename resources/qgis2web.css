@@ -136,7 +136,7 @@ nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     display: block; /* Để mục menu trở thành hình chữ nhật */
     padding: 10px 10px; /* Khoảng cách nội dung menu */
 }
@@ -171,7 +171,7 @@ nav ul::before {
 /* Chỉnh logo*/
 .logo{
     position: absolute;
-    top: 5px;
+    top: 3px;
     left: 8%;
     width: 130px; /* Đặt chiều rộng */
     height: 80px; /* Đặt chiều cao */

@@ -21,7 +21,7 @@ html, body {
 }
 html, body {
     width: 100%;
-    height: 100%;
+    height: 95.6%;
     padding: 0;
     margin: 0;
 }
@@ -69,15 +69,19 @@ html, body {
     background-color: #1a73e8ff;
 }
 .menu-content {
+    max-height: 85vh; /* chiều cao của viewport */
+    overflow-y: auto; /* Hiển thị thanh cuộn nếu nội dung vượt quá kích thước container */
     padding: 10px;
 }
 .menu-content-title, th {
     text-transform: capitalize;
 }
 .menu-table {
+
     width: 100%;
 }
 .menu-table th {
+    
     background-color: rgba(0, 0, 0, 0.2);
 }
 .menu-table th, tr, td {
